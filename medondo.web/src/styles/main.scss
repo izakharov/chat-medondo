@@ -1,0 +1,24 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@ctrl/ngx-emoji-mart/picker';
+
+
+
+// medondo global, can be moved to a separate folder
+body {
+  background-color: #fafafa;
+}
+
+input {
+  font: 400 14px system-ui;
+}
+
+input,
+button {
+  &:focus {
+    outline: 0;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}

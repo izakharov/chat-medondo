@@ -1,0 +1,31 @@
+<div class="chat">
+  <div class="title">
+    <span>Chat</span>
+  </div>
+  <div class="chat-content">
+    <div class="messages">
+      <div class="list">
+        <div class="message" *ngFor="let message of messages">
+          <span>({{message.time | date: 'H:mm'}})</span>
+          <span class="user-name">{{message.userName}}:</span>
+          <span class="text" [innerHTML]="message.text | highlightDirectUser"></span>
+        </div>
+      </div>
+      <form class="send" [formGroup]="newMessageForm" (submit)="sendMessage()">
+        <input class="message-text" type="text" formControlName="text" placeholder="Message">
+        <div class="smiles">
+          <div (click)="openEmojiBar = true;">😀</div>
+          <emoji-mart *ngIf="openEmojiBar" set="emojione" title="Pick your emoji…" emoji="point_up" (emojiClick)="addEmoji($event)">
+          </emoji-mart>
+        </div>
+        <button type="submit" class="send-message">send</button>
+      </form>
+    </div>
+    <div class="users">
+      <div class="user-name" (click)="direct(item)" *ngFor="let item of users"
+        [ngClass]="{'current': currentUser === item}">{{item}}</div>
+    </div>
+
+  </div>
+
+</div>

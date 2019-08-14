@@ -1,0 +1,6 @@
+<mat-card *ngIf="!showChat">
+  <p class="greetings">Hello to an Awesome Medondo Web Chat (MWC)</p>
+  <medo-add-chat-user (onUserAdded)="onUserSignIn($event)"></medo-add-chat-user>
+</mat-card>
+
+<medo-chat hidden [hidden]="!showChat" [currentUser]="currentUser"></medo-chat>
